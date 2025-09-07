@@ -1,0 +1,58 @@
+/* ~/.config/rofi/wallpaper.rasi */
+
+* {
+    background-color: #1e1e2e; /* Catppuccin Macchiato Base */
+    text-color:       #cdd6f4; /* Catppuccin Macchiato Text */
+    font:             "JetBrainsMono Nerd Font 10";
+}
+
+window {
+    width:            80%;
+    height:           80%;
+    border:           2px;
+    border-color:     #89b4fa; /* Catppuccin Macchiato Blue */
+    border-radius:    12px;
+    padding:          20px;
+}
+
+mainbox {
+    children:         [ "inputbar", "listview" ];
+}
+
+listview {
+    columns:          5;
+    lines:            3;
+    layout:           vertical;
+    spacing:          20px;
+    padding:          20px 0px 0px 0px;
+}
+
+element {
+    orientation:      vertical;
+    padding:          15px;
+    border-radius:    8px;
+    spacing:          10px;
+}
+
+/* This is the key part that makes the previews large */
+element-icon {
+    size:             12em;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+}
+
+element selected {
+    background-color: #89b4fa; /* Blue */
+    text-color:       #1e1e2e; /* Base */
+    border-radius:    8px;
+}
+
+inputbar {
+    padding:          12px;
+    border-radius:    8px;
+    border:           1px;
+    border-color:     #45475a; /* Catppuccin Macchiato Surface2 */
+}

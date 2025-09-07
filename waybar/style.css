@@ -1,0 +1,353 @@
+/*
+ * Catppuccin Macchiato theme for Waybar
+ * Maintainer: Gemini
+ */
+
+/* Catppuccin Macchiato Palette */
+@define-color rosewater #f4dbd6;
+@define-color flamingo #f0c6c6;
+@define-color pink #f5bde6;
+@define-color mauve #c6a0f6;
+@define-color red #ed8796;
+@define-color maroon #ee99a0;
+@define-color peach #f5a97f;
+@define-color yellow #eed49f;
+@define-color green #a6da95;
+@define-color teal #8bd5ca;
+@define-color sky #91d7e3;
+@define-color sapphire #7dc4e4;
+@define-color blue #8aadf4;
+@define-color lavender #b7bdf8;
+
+@define-color text #cad3f5;
+@define-color subtext1 #b8c0e0;
+@define-color subtext0 #a5adce;
+@define-color overlay2 #939ab7;
+@define-color overlay1 #8087a2;
+@define-color overlay0 #6e738d;
+@define-color surface2 #5b6078;
+@define-color surface1 #494d64;
+@define-color surface0 #363a4f;
+
+@define-color base #24273a;
+@define-color mantle #1e2030;
+@define-color crust #181926;
+
+* {
+    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: rgba(36, 39, 58, 0.8); /* @base with transparency */
+    border-bottom: 3px solid @surface0;
+    color: @text;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px @lavender;
+}
+
+#pulseaudio:hover {
+    background-color: @peach;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @text;
+}
+
+#workspaces button:hover {
+    background: @surface0;
+}
+
+#workspaces button.focused {
+    background-color: @surface1;
+    box-shadow: inset 0 -3px @blue;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @crust;
+}
+
+#mode {
+    background-color: @surface2;
+    box-shadow: inset 0 -3px @lavender;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 10px;
+    color: @text;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: @mauve;
+    color: @crust;
+}
+
+#battery {
+    background-color: @green;
+    color: @crust;
+}
+
+#battery.charging, #battery.plugged {
+    background-color: @green;
+    color: @crust;
+}
+
+@keyframes blink {
+    to {
+        background-color: @maroon;
+        color: @crust;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @crust;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: @red;
+    color: @crust;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: @sapphire;
+    color: @crust;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: @green;
+    color: @crust;
+}
+
+label:focus {
+    background-color: @base;
+}
+
+#cpu {
+    background-color: @teal;
+    color: @crust;
+}
+
+#memory {
+    background-color: @lavender;
+    color: @crust;
+}
+
+#disk {
+    background-color: @peach;
+    color: @crust;
+}
+
+#backlight {
+    background-color: @sky;
+    color: @crust;
+}
+
+#network {
+    background-color: @blue;
+    color: @crust;
+}
+
+#network.disconnected {
+    background-color: @red;
+}
+
+#pulseaudio {
+    background-color: @yellow;
+    color: @crust;
+}
+
+#pulseaudio.muted {
+    background-color: @surface1;
+    color: @text;
+}
+
+#wireplumber {
+    background-color: @rosewater;
+    color: @crust;
+}
+
+#wireplumber.muted {
+    background-color: @red;
+}
+
+#custom-media {
+    background-color: @pink;
+    color: @crust;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: @green;
+}
+
+#custom-media.custom-vlc {
+    background-color: @peach;
+}
+
+#temperature {
+    background-color: @maroon;
+    color: @crust;
+}
+
+#temperature.critical {
+    background-color: @red;
+}
+
+#tray {
+    background-color: @surface0;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+}
+
+#idle_inhibitor {
+    background-color: @surface1;
+}
+
+#idle_inhibitor.activated {
+    background-color: @text;
+    color: @crust;
+}
+
+#mpd {
+    background-color: @pink;
+    color: @crust;
+}
+
+#mpd.disconnected {
+    background-color: @red;
+}
+
+#mpd.stopped {
+    background-color: @overlay0;
+}
+
+#mpd.paused {
+    background-color: @flamingo;
+    color: @crust;
+}
+
+#language {
+    background: @sapphire;
+    color: @crust;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: @sky;
+    color: @crust;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: @surface0;
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: @crust;
+}
+
+#privacy-item.screenshare {
+    background-color: @peach;
+}
+
+#privacy-item.audio-in {
+    background-color: @green;
+}
+
+#privacy-item.audio-out {
+    background-color: @blue;
+}
